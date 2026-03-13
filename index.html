@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Zoom Optique | Excellence à Rabat</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --vert-sante: #004d40;
+            --blanc: #ffffff;
+            --anthracite: #263238;
+            --gris-fond: #f4f7f6;
+            --transition: all 0.4s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--anthracite); background-color: var(--blanc); line-height: 1.6; }
+
+        /* Navigation */
+        header { position: sticky; top: 0; width: 100%; z-index: 1000; background: var(--blanc); border-bottom: 2px solid var(--vert-sante); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--vert-sante); text-decoration: none; font-weight: 900; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--anthracite); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--vert-sante); }
+
+        /* Hero (clario-20.png) */
+        .hero { 
+            height: 80vh; 
+            background: linear-gradient(rgba(0, 77, 64, 0.6), rgba(0, 0, 0, 0.4)), url('clario-20.png') center/cover; 
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white; 
+        }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 15px; }
+        .btn-main { background: var(--vert-sante); color: white; padding: 18px 45px; text-decoration: none; font-weight: 700; text-transform: uppercase; border-radius: 50px; transition: 0.3s; display: inline-block; }
+
+        /* Section Engagement (clario-8.png) */
+        .section-padding { padding: 80px 5%; }
+        .flex-container { display: flex; flex-wrap: wrap; align-items: center; gap: 50px; }
+        .flex-text { flex: 1; min-width: 300px; text-align: left; }
+        .flex-img { flex: 1; min-width: 300px; }
+        .flex-img img { width: 100%; border-radius: 15px; box-shadow: 15px 15px 0 var(--vert-sante); }
+
+        /* Catalogue Collection (clario-1 à 7) */
+        .slider-container { background: var(--gris-fond); padding: 60px 0; overflow: hidden; }
+        .slider-track { display: flex; width: calc(250px * 14); animation: scroll 30s linear infinite; }
+        .slider-track img { width: 250px; height: 180px; object-fit: contain; padding: 0 20px; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 7)); } }
+
+        /* Section Expert (clario-19.png + mini galerie) */
+        .expert-bg { background: var(--anthracite); color: white; padding: 80px 5%; }
+        .mini-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+        .mini-gallery img { width: 100%; height: 80px; object-fit: cover; border-radius: 5px; }
+
+        /* Chatbot - Correction Classe */
+        .chat-btn { position: fixed; bottom: 30px; left: 30px; background: var(--vert-sante); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; font-size: 1.5rem; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .chat-box { position: fixed; bottom: 100px; left: 30px; width: 300px; background: white; border-radius: 10px; display: none; flex-direction: column; border: 1px solid #ddd; z-index: 2000; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .chat-header { background: var(--vert-sante); color: white; padding: 15px; font-weight: bold; border-radius: 10px 10px 0 0; }
+        .chat-body { padding: 15px; height: 180px; font-size: 0.85rem; color: #333; }
+
+        /* WhatsApp */
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 2000; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        footer { background: #111; color: #777; padding: 40px 5%; text-align: center; border-top: 5px solid var(--vert-sante); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">MEGA ZOOM</a>
+            <div class="nav-links">
+                <a href="#home">Accueil</a>
+                <a href="#engagement">Engagement</a>
+                <a href="#catalogue">Collection</a>
+                <a href="#expert">L'Expert</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>MEGA ZOOM OPTIQUE</h1>
+            <p>Votre Santé Visuelle est Notre Priorité</p><br>
+            <a href="https://wa.me/212752934107" class="btn-main">Prendre RDV</a>
+        </div>
+    </section>
+
+    <section class="section-padding" id="engagement">
+        <div class="flex-container">
+            <div class="flex-text">
+                <h2 style="font-family:'Playfair Display'; font-size: 2.5rem; color: var(--vert-sante);">Précision & Clarté</h2>
+                <p style="margin-top:20px;">Chez <strong>Mega Zoom Optique</strong>, nous utilisons des équipements de diagnostic de haute technologie pour garantir une précision optique absolue.</p>
+                <p>Chaque montage est réalisé avec une rigueur chirurgicale par M. Hamza Bahassi, opticien diplômé.</p>
+            </div>
+            <div class="flex-img">
+                <img src="clario-8.png" alt="Atelier de précision Mega Zoom">
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogue" class="slider-container">
+        <h2 style="text-align:center; margin-bottom:30px; font-family:'Playfair Display';">Collection Solaire Exclusive</h2>
+        <div class="slider-track">
+            <img src="clario-1.png" alt="Modèle Solaire 1">
+            <img src="clario-2.png" alt="Modèle Solaire 2">
+            <img src="clario-3.png" alt="Modèle Solaire 3">
+            <img src="clario-4.png" alt="Modèle Solaire 4">
+            <img src="clario-5.png" alt="Modèle Solaire 5">
+            <img src="clario-6.png" alt="Modèle Solaire 6">
+            <img src="clario-7.png" alt="Modèle Solaire 7">
+            <img src="clario-1.png" alt="Modèle Solaire 1">
+            <img src="clario-2.png" alt="Modèle Solaire 2">
+            <img src="clario-3.png" alt="Modèle Solaire 3">
+            <img src="clario-4.png" alt="Modèle Solaire 4">
+            <img src="clario-5.png" alt="Modèle Solaire 5">
+            <img src="clario-6.png" alt="Modèle Solaire 6">
+            <img src="clario-7.png" alt="Modèle Solaire 7">
+        </div>
+    </section>
+
+    <section class="expert-bg" id="expert">
+        <div class="flex-container">
+            <div style="flex:1;">
+                <img src="clario-19.png" alt="Expert Hamza Bahassi" style="width:100%; border-radius:10px;">
+                <div class="mini-gallery">
+                    <img src="clario-13.png" alt="Détail équipement 1">
+                    <img src="clario-14.png" alt="Détail équipement 2">
+                    <img src="clario-15.png" alt="Détail équipement 3">
+                </div>
+            </div>
+            <div class="flex-text">
+                <h2 style="font-family:'Playfair Display'; font-size: 2.5rem;">L'Expert <span>Hamza Bahassi</span></h2>
+                <p style="margin-top:20px; color:#bbb;">Opticien diplômé de l'école IPIAB, expert en santé visuelle à Rabat.</p>
+                <p style="color:#bbb;">Une vision moderne alliant expertise clinique et innovation technologique pour votre confort quotidien.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mega Zoom Optique. Rabat, Maroc.</p>
+    </footer>
+
+    <a href="https://wa.me/212752934107" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+
+    <div class="chat-btn" id="chatBtn"><i class="fas fa-comment-medical"></i></div>
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">Assistant Mega Zoom</div>
+        <div class="chat-body">Bonjour ! Je suis Hamza Bahassi. Comment puis-je vous conseiller aujourd'hui ?</div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('chatBtn');
+        const box = document.getElementById('chatBox');
+        btn.onclick = () => box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
+    </script>
+</body>
+</html>
